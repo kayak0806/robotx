@@ -1,5 +1,6 @@
 # Contains all classes pertaining to things on the map
 import math
+import datetime
 
 
 class Point():
@@ -36,7 +37,8 @@ class Point():
     def __str__(self):
         return "(%s,%s)"%(self.x, self.y)
         
-class Item(Point):
+class Boat(Point):
+    # UPDATE
     # Has a location (Point), a size (int)
     # getSize returns int size
     # getType retunrs string type
@@ -62,6 +64,22 @@ class Item(Point):
         second =  " with radius %s"%(self.size)
         return first+second
 
-class Obsticle(Item):
-    def __init__(self,location,size):
-        Item.__init__(self,location,size,"obsticle")
+class Gate(object):
+    def __init__(self, portPoint, starboardPoint):
+        self.portPoint = portPoint
+        self.starboardPoint = starboardPoint
+        self.done = False
+
+    def updatePoint(side, newPoint):
+        if side == 'port':
+            self.portPoint.updatePos(newPoint)
+        if side == 'starboard':
+            self.starboardPoint.updatePos(newPoint)
+
+class waitPoint(point):
+    def __init__(self,x,y,time,tolerance):
+        Point.__init__(self,x,y)
+        self.time = time
+        self.tolerance = tolerance
+        self.start = 
+

@@ -2,9 +2,9 @@
 	Importaint:
 	Main must take a stdin input
 	In terminal:
-	echo _input_ | pyhton main.py
+	echo <input> | pyhton main.py
 	OR
-	cat input.txt | python main.py
+	cat <filename>.txt | python main.py
 '''
 
 # Main run file
@@ -15,24 +15,32 @@ import items
 import worldmap
 
 def parseStr(arrayStr):
+	# Take a string containing an array
+	# Return the array
 	return eval(arrayStr)
 
 def getInput():
-	# read from stdin
-	# Assume the input is a list of lists representing the world
+	# Read from stdin
+	# Return a tuple of the given inputs
+
+	# World is a list of lists representing the world
 	arrayStr = ""
 	for line in fileinput.input():
 		line=line.rstrip()
 		arrayStr += line
-	return parseStr(arrayStr)
+	world = parseStr(arrayStr)
+
+	return (world)
 
 def getPath(localMap):
+	# Take a map object
+	# Return an array of positions
 	return [(1,1)]
 
-def sendOutput(path):
-	# write to stdOut
+def sendOutput(infoOut):
+	# Write to stdOut
 	# Currently assumes printing to terminal
-	sys.stdout.write(str(path)+'\n')
+	sys.stdout.write(str(infoOut)+'\n')
 
 
 def main(): 
@@ -42,12 +50,11 @@ def main():
     #   plan out path
     #   send path back
 
-    mapIn = getInput()
-    # localMap = worldmap.Map()
+    infoIn = getInput()
+    localMap = worldmap.Map()
+    localMap.addObjects()
     path = getPath(mapIn)
     sendOutput(path)
-
-
 
 
 if __name__ == '__main__':

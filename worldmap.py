@@ -3,36 +3,26 @@
 import items
 
 class Map(object):
-    # Has a 2d list of sizex by sizey. If no sizey specified, assume square
-    #     a key dictionary maping from itemID to item type
-    # self.map populated by int indicating object present at coord
-    # inMap takes a point, returns true if point is in map
-    # atPoint takes a point, returns the object type at that point
-    # mapKey returns a dictionary of object key -> object type
+    # Takes a map size
+    # Has an obsticle heat map 2d   array
+    #     an object map             dictionary
 
     def __init__(self,sizex,sizey=None):
         if (sizey==None):
             # if no sizey, assume square
             sizey=sizex
 
-        self.map=[[0 for x in range(sizex)] for y in range(sizey)]
-        self.key={0:'water',1:'obsticle'}
+        self.heatMap=[[0 for x in range(sizex)] for y in range(sizey)]
+        self.objectMap=dict()
 
-    def inMap(self,point):
-        xmax = len(self.map)
-        ymax = len(self.map[0])
+    # Interface
+    def setHeatMap(mapIn):
+        pass
+    def updateObjectMap(object, location):
+        pass
+    
 
-        return point.inRange(xmax,ymax)
-
-    def atPoint(self,point):
-        return self.map[point.x][point.y]
-
-    def mapKey(self):
-        return self.key
-
-    def changeItem(self,point,item):
-        itemID = self.key('')
-        self.map[point.x][point.y]
+    # Utilities
 
     def __str__(self):
         return string2dList(self.map)
