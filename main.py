@@ -51,9 +51,10 @@ def main():
     #   send path back
 
     infoIn = getInput()
-    localMap = worldmap.Map()
-    localMap.addObjects()
-    path = getPath(mapIn)
+    localMap = worldmap.Map(10)
+
+    path = getPath(localMap)
+    
     sendOutput(path)
 
 

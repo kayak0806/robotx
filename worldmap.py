@@ -4,21 +4,27 @@ import items
 
 class Map(object):
     # Takes a map size
-    # Has an obsticle heat map 2d   array
-    #     an object map             dictionary
+    # Has: an obsticle heat map  2d list
+    #      an object map         list of bodies
+    #      a boat                boat
 
-    def __init__(self,sizex,sizey=None):
+    def __init__(self,sizex,sizey=None, bodies=[]):
         if (sizey==None):
             # if no sizey, assume square
             sizey=sizex
 
         self.heatMap=[[0 for x in range(sizex)] for y in range(sizey)]
-        self.objectMap=dict()
+        self.boat = Boat(Point(0,0),0)
+        self.bodies=bodies
 
     # Interface
-    def setHeatMap(mapIn):
+    def updateHeatMap(mapIn):
         pass
-    def updateObjectMap(object, location):
+    def addBody(body):
+        pass
+    def updateBody(body):
+        pass
+    def updateBoat(pos):
         pass
     
 
