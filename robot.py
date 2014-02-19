@@ -1,5 +1,5 @@
 class robot:
-    def __init__(x, y, world_map, goal):
+    def __init__(self,x, y, world_map, goal):
     """
         Input:
             x, y - Starting coordinates of the robot
@@ -17,22 +17,22 @@ class robot:
         self.world_map = world_map
         self.goal = goal
         
-    def find_end():
+    def find_end(self):
     """
         Output:
             Returns the coordinates of the end gate as a set of lists
     """    
-    length = length(self.world_map)
-    width = length(self.world_map[0])
-    
-    if self.goal == 1:
-        return world_map[99][width]
-    if self.goal == 2:
-        return world_map[299][width]
-    if self.goal == 3:
-        return world_map[499][width]
+        length = length(self.world_map)
+        width = length(self.world_map[0])
         
-    def algorithm():
+        if self.goal == 1:
+            return world_map[99][width]
+        if self.goal == 2:
+            return world_map[299][width]
+        if self.goal == 3:
+            return world_map[499][width]
+        
+    def algorithm(self):
     """
         Output:
             Returns a set of positions and velocities for the robot
